@@ -6,18 +6,21 @@
 C_SRCS += \
 ../cda.c \
 ../list.c \
+../lklist.c \
 ../main.c \
 ../stk.c 
 
 OBJS += \
 ./cda.o \
 ./list.o \
+./lklist.o \
 ./main.o \
 ./stk.o 
 
 C_DEPS += \
 ./cda.d \
 ./list.d \
+./lklist.d \
 ./main.d \
 ./stk.d 
 

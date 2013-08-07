@@ -8,8 +8,9 @@
 #ifndef CDA_H_
 #define CDA_H_
 
-#include  <assert.h>
+#include <assert.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define CDA_TRUE (1)
 #define CDA_FALSE (0)

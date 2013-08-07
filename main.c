@@ -1,5 +1,4 @@
-/*
- * main.c
+ /* main.c
  *
  *  Created on: Aug 5, 2013
  *      Author: wisedulab2
@@ -10,6 +9,7 @@
 #include "cda.h"
 #include "list.h"
 #include "stk.h"
+#include "lklist.h"
 
 void print_item(void *item){
 	char *data = (char *) item;
@@ -88,11 +88,73 @@ void call_stack(){
 
 }
 
+void test_linklist(const char * desc,ENQ_ANCHOR_p_t list){
+	printf("#############################################\n");
+	printf("%s\n",desc);
+	printf("---------------------------------------------\n");
 
+	if(ENQ_is_list_empty(list)){
+		printf("the list %s is empty",list->name);
+	}
+
+	ENQ_ITEM_p_t item = ENQ_GET_HEAD(list);
+	while(item!=list){
+		printf("the item is : %s \n",item->name);
+		item = ENQ_GET_NEXT(item);
+	}
+
+	printf("##############################################\n");
+
+}
+
+void call_linklist(){
+	ENQ_ANCHOR_p_t list =  ENQ_create_list("list_test");
+
+	int i=1;
+	char *name=CDA_malloc(sizeof(char *));
+	while(i<11){
+		sprintf(name,"%d",i);
+		ENQ_ITEM_p_t item = ENQ_create_item(name,sizeof(ENQ_ITEM_t));
+		ENQ_add_tail(list,item);
+
+		i++;
+	}
+	CDA_free(name);
+	test_linklist("test create item and add to tail",list);
+
+	ENQ_ITEM_p_t item = ENQ_create_item("0",sizeof(ENQ_ITEM_t));
+	ENQ_add_header(list,item);
+	test_linklist("test add item to header",list);
+	
+	ENQ_ITEM_p_t item_tail = ENQ_create_item("11",sizeof(ENQ_ITEM_t));
+	ENQ_add_tail(list,item_tail);
+	test_linklist("test add item to tail",list);
+	
+	ENQ_ITEM_p_t first = ENQ_GET_HEAD(list);
+	ENQ_ITEM_p_t second = ENQ_GET_NEXT(first);
+	
+	ENQ_ITEM_p_t th_item = ENQ_create_item("03",sizeof(ENQ_ITEM_t));
+	ENQ_add_after(th_item,second);
+	
+	ENQ_ITEM_p_t se_item = ENQ_create_item("02",sizeof(ENQ_ITEM_t));
+	ENQ_add_before(se_item,second);
+	test_linklist("test add after and before to item",list);
+	
+	ENQ_ITEM_p_t item_02 = ENQ_deq_item(ENQ_GET_PREV(second));
+	ENQ_ITEM_p_t item_03 = ENQ_deq_item(ENQ_GET_NEXT(second));
+	
+	CDA_ASSERT(ENQ_is_item_enqed(item_02)==CDA_FALSE);
+	CDA_ASSERT(ENQ_is_item_enqed(item_03)==CDA_FALSE);
+	test_linklist("test enqueue the item",list);
+
+	ENQ_destroy_list(list);
+
+
+}
 
 int main(void){
 
-	call_stack();
+	call_linklist();
 
 	exit(EXIT_SUCCESS);
 }
