@@ -1,4 +1,4 @@
-main.d: ../main.c ../cda.h ../list.h ../stk.h ../lklist.h
+main.d: ../main.c ../cda.h ../list.h ../stk.h ../lklist.h ../mgsort.h
 
 ../cda.h:
 
@@ -7,3 +7,5 @@ main.d: ../main.c ../cda.h ../list.h ../stk.h ../lklist.h
 ../stk.h:
 
 ../lklist.h:
+
+../mgsort.h:

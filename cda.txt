@@ -1,0 +1,1 @@
+./Debug/cda.o ./Debug/list.o ./Debug/lklist.o ./Debug/main.o ./Debug/stk.o ./Debug/mgsort.o

@@ -8,21 +8,36 @@ C_SRCS += \
 ../list.c \
 ../lklist.c \
 ../main.c \
-../stk.c 
+../mgsort.c \
+../prq.c \
+../que.c \
+../stk.c \
+../testprq.c \
+../testque.c 
 
 OBJS += \
 ./cda.o \
 ./list.o \
 ./lklist.o \
 ./main.o \
-./stk.o 
+./mgsort.o \
+./prq.o \
+./que.o \
+./stk.o \
+./testprq.o \
+./testque.o 
 
 C_DEPS += \
 ./cda.d \
 ./list.d \
 ./lklist.d \
 ./main.d \
-./stk.d 
+./mgsort.d \
+./prq.d \
+./que.d \
+./stk.d \
+./testprq.d \
+./testque.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -176,7 +176,7 @@ void call_mergesort(){
 }
 
 int main(void){
-	call_mergesort();
+	TRANS_prq();
 
 	exit(EXIT_SUCCESS);
 }
