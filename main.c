@@ -10,6 +10,7 @@
 #include "list.h"
 #include "stk.h"
 #include "lklist.h"
+#include "mgsort.h"
 
 void print_item(void *item){
 	char *data = (char *) item;
@@ -88,7 +89,7 @@ void call_stack(){
 
 }
 
-void test_linklist(const char * desc,ENQ_ANCHOR_p_t list){
+void test_linklist(const char *desc,ENQ_ANCHOR_p_t list){
 	printf("#############################################\n");
 	printf("%s\n",desc);
 	printf("---------------------------------------------\n");
@@ -152,9 +153,30 @@ void call_linklist(){
 
 }
 
-int main(void){
+int compare_int(const void *value1, const void *value2){
+	const int *int_value1 = (const int *) value1;
+	const int *int_value2 = (const int *) value2;
+	
+	int sub = *int_value1-*int_value2;
+	if(sub<0) return -1;
+	if(sub>0) return 1;
+	return sub;
+	
+}
 
-	call_linklist();
+void call_mergesort(){
+	int array[10] = {10,3,7,6,1,5,9,4,8,2};
+
+	mergesort(array,10,sizeof(int),(CMP_PROC_p_t)compare_int);
+	
+	int i=0;
+	for(i=0;i<10;i++){
+		printf("%d \n",array[i]);
+	}
+}
+
+int main(void){
+	call_mergesort();
 
 	exit(EXIT_SUCCESS);
 }
