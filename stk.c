@@ -55,7 +55,7 @@ STK_MARK_t STK_push_item(STK_ID_t stack, void *item){
 	*stack->sptr=item;
 	stack->sptr = stack->sptr+1;
 
-	return stack->sptr-stack->stack-1;
+	return (int)(stack->sptr-stack->stack-1);
 }
 
 CDA_BOOL_t STK_is_empty(STK_ID_t stack){
@@ -96,9 +96,9 @@ STK_MARK_t STK_grab_space(STK_ID_t stack,int num_slots,STK_MARK_p_t bottom_mark)
 		abort();
 
 	if(bottom_mark!=NULL)
-		*bottom_mark = stack->sptr-stack->stack;
+		*bottom_mark = (int)(stack->sptr-stack->stack);
 
 	stack->sptr+=num_slots;
 
-	return stack->sptr-stack->stack-1;
+	return (int)(stack->sptr-stack->stack-1);
 }

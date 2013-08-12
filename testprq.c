@@ -116,7 +116,7 @@ void TRANS_prq(){
 	TRANS_enq_transaction("del 3","delete");
 	TRANS_enq_transaction("del 4","delete");
 
-	char **p=CDA_malloc(sizeof(char *));
+	const char **p=CDA_malloc(sizeof(char *));
 
 	while(!PRQ_is_empty(queue_)){
 		char *data = (char *)TRANS_get_transaction(p);

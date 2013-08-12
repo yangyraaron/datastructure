@@ -176,7 +176,7 @@ void call_mergesort(){
 }
 
 int main(void){
-	TRANS_prq();
+	btreeindex_show();
 
 	exit(EXIT_SUCCESS);
 }

@@ -5,14 +5,14 @@
 memcpy(((temp_array)+(knx)*(element_size)),\
 ((array)+(inx)*(element_size)),(element_size))
 		   
-void mergesort(void *array,size_t num_elements,size_t element_size,CMP_PROC_p_t cmp_proc)
+void SORT_merge(void *array,size_t num_elements,size_t element_size,CMP_PROC_p_t cmp_proc)
 {
 	if(cmp_proc==NULL)
 		return;
 	if(num_elements<2)
 		return;
-	int low_half = num_elements/2;
-	int high_half = num_elements-low_half;
+	size_t low_half = num_elements/2;
+	size_t high_half = num_elements-low_half;
 	//the left array address
 	BYTE_t *array1 = array;
 	//the right array address
