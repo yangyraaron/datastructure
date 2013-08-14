@@ -12,6 +12,10 @@
 #include "lklist.h"
 #include "mgsort.h"
 
+void btreeindex_show();
+void TEST_hashtable();
+void CACHE_SERVER_run();
+
 void print_item(void *item){
 	char *data = (char *) item;
 
@@ -172,11 +176,25 @@ void call_mergesort(){
 	int i=0;
 	for(i=0;i<10;i++){
 		printf("%d \n",array[i]);
+        
 	}
 }
 
 int main(void){
-	btreeindex_show();
+//	CDA_UINT16_t i = 1;
+//    while (i<12) {
+//        printf("the value %d is prime or not : %s \n",i,CDA_is_prime(i)?"true":"false");
+//        
+//        CDA_UINT16_t n = CDA_next_prime(i);
+//        printf("the next prime value %d is prime or not : %s \n",n,CDA_is_prime(n)?"true":"false");
+//        
+//        i++;
+//    }
+//
+    
+    //TEST_hashtable();
+    
+    CACHE_SERVER_run();
 
 	exit(EXIT_SUCCESS);
 }

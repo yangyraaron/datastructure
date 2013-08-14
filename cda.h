@@ -39,4 +39,7 @@ void *CDA_calloc(size_t nitems,size_t size);
 void *CDA_realloc(void *ptr,size_t size);
 void CDA_free( void *mem);
 
+CDA_BOOL_t CDA_is_prime(CDA_UINT16_t num);
+CDA_UINT16_t CDA_next_prime(CDA_UINT16_t num);
+
 #endif /* CDA_H_ */
